@@ -5,7 +5,7 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			cmake = { "cmakelang" },
+			cmake = { "cmakelint" },
 			css = { "stylelint" },
 			javascript = { "eslint_d" },
 			python = { "ruff" },
