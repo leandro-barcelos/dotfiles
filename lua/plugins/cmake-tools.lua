@@ -61,7 +61,6 @@ return {
     keymap("n", "<leader>cl", "<cmd>CMakeSelectLaunchTarget<cr>", { desc = "CMake Select Launch Target" })
     keymap("n", "<leader>cc", "<cmd>CMakeClean<cr>", { desc = "CMake Clean" })
     keymap("n", "<leader>cs", "<cmd>CMakeStop<cr>", { desc = "CMake Stop" })
-    keymap("n", "<leader>ca", "<cmd>CMakeSettings<cr>", { desc = "CMake Settings/Args" })
 
     -- Additional custom keymaps for more control
     -- Build and Run in one command
