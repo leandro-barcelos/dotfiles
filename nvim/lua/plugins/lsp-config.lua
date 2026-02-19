@@ -28,29 +28,19 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			vim.diagnostic.config({ virtual_text = true })
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("lua_ls")
 
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-				cmd = {
-					"clangd",
-					"--background-index",
-					"--clang-tidy",
-					"--header-insertion=iwyu",
-					"--completion-style=detailed",
-				},
-			})
-
-			lspconfig.neocmake.setup({
+			vim.lsp.config("neocmake", {
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("neocmake")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
