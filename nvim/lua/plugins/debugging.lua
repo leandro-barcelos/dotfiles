@@ -4,7 +4,6 @@ return {
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
-			"mfussenegger/nvim-dap-python",
 		},
 		config = function()
 			local dap = require("dap")
@@ -60,8 +59,6 @@ return {
 				command = "/usr/bin/lldb-dap", -- adjust as needed, must be absolute path
 				name = "lldb",
 			}
-
-			require("dap-python").setup("python3")
 		end,
 	},
 }

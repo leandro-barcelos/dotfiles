@@ -18,12 +18,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"clangd",
-					"pylsp",
-					"vtsls",
-					"rust_analyzer",
-					"cssls",
 					"neocmake",
-					"djlsp",
 				},
 				automatic_installation = true,
 			})
@@ -33,22 +28,29 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
+			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			vim.diagnostic.config({ virtual_text = true })
 
-			local lsp_opts = {
+			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
-			}
+			})
 
-			vim.lsp.enable("lua_ls", lsp_opts)
-			vim.lsp.enable("clangd", lsp_opts)
-			vim.lsp.enable("pylsp", lsp_opts)
-			vim.lsp.enable("vtsls", lsp_opts)
-			vim.lsp.enable("rust_analyzer", lsp_opts)
-			vim.lsp.enable("cssls", lsp_opts)
-			vim.lsp.enable("neocmake", lsp_opts)
-			vim.lsp.enable("djlsp", lsp_opts)
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--header-insertion=iwyu",
+					"--completion-style=detailed",
+				},
+			})
+
+			lspconfig.neocmake.setup({
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

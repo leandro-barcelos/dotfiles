@@ -9,10 +9,6 @@ return {
         c = { "clang-format" },
         cpp = { "cmake-format" },
         cmake = { "gersemi" },
-        javascript = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        python = { "ruff" },
         lua = { "stylua" },
       },
       format_on_save = {
