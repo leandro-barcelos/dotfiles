@@ -16,7 +16,7 @@ return {
       cmake_show_console = "always",
       cmake_dap_configuration = {
         name = "cpp",
-        type = "lldb",
+        type = "codelldb",
         request = "launch",
         stopOnEntry = false,
         runInTerminal = true,
