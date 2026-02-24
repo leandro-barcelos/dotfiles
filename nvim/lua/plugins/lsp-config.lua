@@ -19,6 +19,7 @@ return {
 					"lua_ls",
 					"clangd",
 					"neocmake",
+					"pyright",
 				},
 				automatic_installation = true,
 			})
@@ -41,6 +42,11 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("neocmake")
+
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("pyright")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition" })

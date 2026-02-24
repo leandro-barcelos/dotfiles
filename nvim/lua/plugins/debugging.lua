@@ -71,6 +71,18 @@ return {
 					},
 				}
 			end
+
+			dap.configurations.python = {
+				{
+					type = "python",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}",
+					pythonPath = function()
+						return "python"
+					end,
+				},
+			}
 		end,
 	},
 	{
@@ -81,7 +93,7 @@ return {
 		},
 		opts = {
 			automatic_installation = true,
-			ensure_installed = { "codelldb" },
+			ensure_installed = { "codelldb", "debugpy" },
 			handlers = {},
 		},
 	},

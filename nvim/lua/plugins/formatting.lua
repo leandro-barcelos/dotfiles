@@ -10,6 +10,7 @@ return {
         cpp = { "clang-format" },
         cmake = { "gersemi" },
         lua = { "stylua" },
+        python = { "ruff_format" },
       },
       format_on_save = {
         lsp_fallback = true,
