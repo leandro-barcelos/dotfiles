@@ -3,8 +3,15 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
+    vim.filetype.add({
+      extension = {
+        slang = "slang",
+        slangh = "slang",
+      },
+    })
+
     local ts = require("nvim-treesitter")
-    local languages = { "c", "cpp", "cmake", "lua", "python", "json", "jsonc" }
+    local languages = { "c", "cpp", "cmake", "lua", "python", "json", "jsonc", "slang" }
 
     ts.install(languages)
 

@@ -59,6 +59,15 @@ return {
 			})
 			vim.lsp.enable("jsonls")
 
+			if vim.fn.executable("slangd") == 1 then
+				vim.lsp.config("slangd", {
+					capabilities = capabilities,
+					cmd = { "slangd" },
+					filetypes = { "slang" },
+				})
+				vim.lsp.enable("slangd")
+			end
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition" })
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP go to declaration" })
