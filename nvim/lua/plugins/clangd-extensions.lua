@@ -13,6 +13,7 @@ return {
 					"clangd",
 					"--background-index",
 					"--clang-tidy",
+					"--clang-tidy-checks=clang-diagnostic-*,clang-analyzer-*,misc-const-correctness",
 					"--header-insertion=iwyu",
 					"--completion-style=detailed",
 				},
