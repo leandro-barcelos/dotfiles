@@ -53,10 +53,33 @@ return {
 					{ name = "buffer" },
 				}),
 			})
+
 			local ok_cmp_autopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 			if ok_cmp_autopairs then
 				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			end
+		end,
+	},
+	{
+		"abecodes/tabout.nvim",
+		event = "InsertEnter",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"hrsh7th/nvim-cmp",
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+			require("tabout").setup({
+				tabout = { '"', "'", "`", "}", "]", ")" },
+				act_as_tab = true,
+				act_as_shift_tab = true,
+				enable_backwards = true,
+				completion = true,
+				tabkey = "<Tab>",
+				backwards_tabkey = "<S-Tab>",
+				ignore_beginning = true,
+				exclude = {},
+			})
 		end,
 	},
 }
